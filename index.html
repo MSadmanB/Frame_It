@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Frameit — Premium Custom Photo Framing Studio</title>
+  <meta name="description" content="Add elegant custom frames to your photos instantly. Upload your photos and frames, position them in real-time, apply custom filters, and export in high-resolution.">
+  <meta name="keywords" content="photo frame, custom picture frames, frame mockups, image editor, online framer, glassmorphic frame tool">
+  
+  <!-- Favicon / Theme -->
+  <meta name="theme-color" content="#0e0f13">
+  
+  <!-- Typography (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css?v=1.2">
+</head>
+<body class="dark-theme">
+  
+  <!-- Background Glow Effects -->
+  <div class="glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="4" stroke="url(#logo-grad)" stroke-width="2.5" />
+          <path d="M7 17L11.5 12.5L16 17" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15 13L17 11L19 13" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="9" r="2" fill="url(#logo-grad)"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8b5cf6" />
+              <stop offset="1" stop-color="#3b82f6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-text">
+          <h1>FRAME<span>IT</span></h1>
+          <p>Artistic Photo Framing Studio</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <button id="btn-reset-all" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          Reset Studio
+        </button>
+      </div>
+    </header>
+
+    <main class="app-workspace">
+      <!-- Sidebar Controls -->
+      <aside class="sidebar-panel">
+        
+        <!-- Tab Navigation -->
+        <nav class="sidebar-tabs">
+          <button class="tab-btn active" data-tab="tab-upload">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Uploads
+          </button>
+          <button class="tab-btn" data-tab="tab-presets">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+            Presets
+          </button>
+          <button class="tab-btn" data-tab="tab-adjust">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+            Adjust
+          </button>
+          <button class="tab-btn" data-tab="tab-filters">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+            Filters
+          </button>
+        </nav>
+
+        <!-- Tab Content Container -->
+        <div class="tab-content-container">
+          
+          <!-- TAB 1: Uploads -->
+          <section id="tab-upload" class="tab-pane active">
+            <div class="control-group">
+              <h3 class="section-title">1. Upload Photo</h3>
+              <p class="section-desc">Select or drag & drop the photo you wish to frame.</p>
+              
+              <div class="upload-dropzone" id="photo-dropzone">
+                <input type="file" id="input-photo" accept="image/*" class="file-input">
+                <div class="dropzone-content">
+                  <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span class="dropzone-text">Drag & drop photo or <span class="highlight">browse</span></span>
+                  <span class="dropzone-sub">Supports JPEG, PNG, WebP</span>
+                </div>
+                <div class="dropzone-preview" id="photo-dropzone-preview"></div>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <h3 class="section-title">2. Custom Frame Overlay (Optional)</h3>
+              <p class="section-desc">Upload a transparent PNG frame to overlay on your photo.</p>
+              
+              <div class="upload-dropzone" id="frame-dropzone">
+                <input type="file" id="input-frame" accept="image/*" class="file-input">
+                <div class="dropzone-content">
+                  <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  <span class="dropzone-text">Drag & drop frame or <span class="highlight">browse</span></span>
+                  <span class="dropzone-sub">PNG with transparency recommended</span>
+                </div>
+                <div class="dropzone-preview" id="frame-dropzone-preview"></div>
+              </div>
+              <button id="btn-clear-custom-frame" class="btn btn-sm btn-danger hidden mt-2">
+                Remove Custom Frame
+              </button>
+            </div>
+
+            <!-- Custom Frame Background Removal (Chroma Key) Panel -->
+            <div id="custom-frame-keying-panel" class="contextual-settings mt-4 hidden">
+              <h4 class="sub-title">Frame Background Removal (Chroma Key)</h4>
+              <p class="section-desc">If your uploaded frame has a solid background (e.g. white or black center), key it out to overlay it correctly.</p>
+              
+              <div class="input-field">
+                <label for="custom-keying-mode">Keying Mode</label>
+                <select id="custom-keying-mode">
+                  <option value="none" selected>None (Already Transparent PNG)</option>
+                  <option value="white">Key Out White Background</option>
+                  <option value="black">Key Out Black Background</option>
+                  <option value="color">Key Out Custom Color</option>
+                </select>
+              </div>
+
+              <div id="custom-keying-color-wrapper" class="input-field hidden">
+                <label for="custom-keying-color">Select Color to Remove</label>
+                <input type="color" id="custom-keying-color" value="#ffffff">
+              </div>
+
+              <div class="slider-field">
+                <div class="slider-label">
+                  <span>Color Tolerance</span>
+                  <span id="val-custom-keying-tolerance">60</span>
+                </div>
+                <input type="range" id="custom-keying-tolerance" min="5" max="180" value="60">
+              </div>
+
+              <div class="slider-field">
+                <div class="slider-label">
+                  <span>Edge Smoothing</span>
+                  <span id="val-custom-keying-smooth">15</span>
+                </div>
+                <input type="range" id="custom-keying-smooth" min="0" max="80" value="15">
+              </div>
+            </div>
+          </section>
+
+          <!-- TAB 2: Presets -->
+          <section id="tab-presets" class="tab-pane">
+            <h3 class="section-title">Choose Frame Style</h3>
+            <p class="section-desc">Select from our premium procedural and design-based frames.</p>
+            
+            <div class="presets-grid">
+              <!-- No Frame -->
+              <div class="preset-card active" data-preset="none">
+                <div class="preset-thumb thumb-none"></div>
+                <span class="preset-name">No Frame</span>
+              </div>
+              
+              <!-- Polaroid Preset -->
+              <div class="preset-card" data-preset="polaroid">
+                <div class="preset-thumb thumb-polaroid"></div>
+                <span class="preset-name">Polaroid Retro</span>
+              </div>
+
+              <!-- Classic Wood Preset -->
+              <div class="preset-card" data-preset="wood">
+                <div class="preset-thumb thumb-wood"></div>
+                <span class="preset-name">Classic Oak</span>
+              </div>
+
+              <!-- Ornate Gold Preset -->
+              <div class="preset-card" data-preset="gold">
+                <div class="preset-thumb thumb-gold"></div>
+                <span class="preset-name">Ornate Gold</span>
+              </div>
+
+              <!-- Cyberpunk Neon -->
+              <div class="preset-card" data-preset="neon">
+                <div class="preset-thumb thumb-neon"></div>
+                <span class="preset-name">Cyber Glow</span>
+              </div>
+
+              <!-- Sleek Matte Gallery -->
+              <div class="preset-card" data-preset="gallery">
+                <div class="preset-thumb thumb-gallery"></div>
+                <span class="preset-name">Gallery Passe</span>
+              </div>
+
+              <!-- Procedural Border Frame -->
+              <div class="preset-card" data-preset="custom-border">
+                <div class="preset-thumb thumb-custom-border"></div>
+                <span class="preset-name">Procedural Border</span>
+              </div>
+            </div>
+
+            <!-- Contextual Frame Settings -->
+            <div id="frame-customizer" class="contextual-settings hidden">
+              <h4 class="sub-title">Frame Settings</h4>
+              
+              <!-- Settings for Polaroid -->
+              <div id="settings-polaroid" class="frame-sub-settings hidden">
+                <div class="input-field">
+                  <label for="polaroid-text">Caption Text</label>
+                  <input type="text" id="polaroid-text" value="Summer Vibes 2026" placeholder="Write caption...">
+                </div>
+                <div class="input-field">
+                  <label for="polaroid-font">Font Style</label>
+                  <select id="polaroid-font">
+                    <option value="'Plus Jakarta Sans', sans-serif">Modern Sans</option>
+                    <option value="'Courier New', Courier, monospace" selected>Typewriter</option>
+                    <option value="'Georgia', serif">Classic Serif</option>
+                    <option value="'Brush Script MT', cursive">Signature</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Settings for Cyberpunk Neon -->
+              <div id="settings-neon" class="frame-sub-settings hidden">
+                <div class="input-field">
+                  <label for="neon-color-1">Glow Color 1</label>
+                  <input type="color" id="neon-color-1" value="#8b5cf6">
+                </div>
+                <div class="input-field">
+                  <label for="neon-color-2">Glow Color 2</label>
+                  <input type="color" id="neon-color-2" value="#06b6d4">
+                </div>
+              </div>
+
+              <!-- Settings for Gallery Passe-partout -->
+              <div id="settings-gallery" class="frame-sub-settings hidden">
+                <div class="input-field">
+                  <label for="gallery-mat-color">Matting Color</label>
+                  <input type="color" id="gallery-mat-color" value="#f8fafc">
+                </div>
+                <div class="slider-field">
+                  <div class="slider-label">
+                    <span>Matting Size</span>
+                    <span id="val-gallery-size">12%</span>
+                  </div>
+                  <input type="range" id="gallery-size" min="5" max="25" value="12">
+                </div>
+              </div>
+
+              <!-- Settings for Procedural Solid Border -->
+              <div id="settings-border" class="frame-sub-settings hidden">
+                <div class="input-field">
+                  <label for="border-color">Border Color</label>
+                  <input type="color" id="border-color" value="#ffffff">
+                </div>
+                <div class="slider-field">
+                  <div class="slider-label">
+                    <span>Border Thickness</span>
+                    <span id="val-border-width">40px</span>
+                  </div>
+                  <input type="range" id="border-width" min="5" max="150" value="40">
+                </div>
+                <div class="slider-field">
+                  <div class="slider-label">
+                    <span>Corner Rounding</span>
+                    <span id="val-border-radius">8px</span>
+                  </div>
+                  <input type="range" id="border-radius" min="0" max="60" value="8">
+                </div>
+                <div class="checkbox-field">
+                  <input type="checkbox" id="border-shadow" checked>
+                  <label for="border-shadow">Add Inner Shadow</label>
+                </div>
+              </div>
+
+              <!-- Keying threshold for image frames (Gold/Wood/Uploaded Custom) -->
+              <div id="settings-keying" class="frame-sub-settings hidden">
+                <div class="slider-field">
+                  <div class="slider-label">
+                    <span class="flex-align">
+                      Color Tolerance
+                      <span class="info-tooltip" title="Adjust to remove white background from the preset frames.">?</span>
+                    </span>
+                    <span id="val-keying-thresh">60</span>
+                  </div>
+                  <input type="range" id="keying-thresh" min="10" max="150" value="60">
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- TAB 3: Adjustments -->
+          <section id="tab-adjust" class="tab-pane">
+            <h3 class="section-title">Position & Scale</h3>
+            <p class="section-desc">Fine-tune the placement of your photo within the frame.</p>
+            
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Scale (Zoom)</span>
+                <span id="val-photo-scale">1.0x</span>
+              </div>
+              <input type="range" id="photo-scale" min="0.1" max="3" step="0.01" value="1">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Rotation</span>
+                <span id="val-photo-rotate">0°</span>
+              </div>
+              <input type="range" id="photo-rotate" min="-180" max="180" step="1" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Horizontal Offset</span>
+                <span id="val-photo-x">0px</span>
+              </div>
+              <input type="range" id="photo-x" min="-400" max="400" step="1" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Vertical Offset</span>
+                <span id="val-photo-y">0px</span>
+              </div>
+              <input type="range" id="photo-y" min="-400" max="400" step="1" value="0">
+            </div>
+
+            <div class="quick-actions-grid mt-4">
+              <button id="btn-fit-photo" class="btn btn-secondary btn-sm">Fit to Frame</button>
+              <button id="btn-fill-photo" class="btn btn-secondary btn-sm">Fill Frame</button>
+              <button id="btn-center-photo" class="btn btn-secondary btn-sm">Center Photo</button>
+              <button id="btn-rotate-90" class="btn btn-secondary btn-sm">Rotate 90°</button>
+            </div>
+          </section>
+
+          <!-- TAB 4: Filters -->
+          <section id="tab-filters" class="tab-pane">
+            <h3 class="section-title">Photo Filters</h3>
+            <p class="section-desc">Apply professional adjustments directly to your uploaded photo.</p>
+            
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Brightness</span>
+                <span id="val-filter-brightness">100%</span>
+              </div>
+              <input type="range" id="filter-brightness" min="0" max="200" value="100">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Contrast</span>
+                <span id="val-filter-contrast">100%</span>
+              </div>
+              <input type="range" id="filter-contrast" min="0" max="200" value="100">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Saturation</span>
+                <span id="val-filter-saturation">100%</span>
+              </div>
+              <input type="range" id="filter-saturation" min="0" max="200" value="100">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Blur</span>
+                <span id="val-filter-blur">0px</span>
+              </div>
+              <input type="range" id="filter-blur" min="0" max="20" step="0.5" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Grayscale</span>
+                <span id="val-filter-grayscale">0%</span>
+              </div>
+              <input type="range" id="filter-grayscale" min="0" max="100" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Sepia</span>
+                <span id="val-filter-sepia">0%</span>
+              </div>
+              <input type="range" id="filter-sepia" min="0" max="100" value="0">
+            </div>
+
+            <div class="slider-field">
+              <div class="slider-label">
+                <span>Hue Rotate</span>
+                <span id="val-filter-hue">0°</span>
+              </div>
+              <input type="range" id="filter-hue" min="0" max="360" value="0">
+            </div>
+
+            <button id="btn-reset-filters" class="btn btn-secondary btn-sm mt-4 w-full">
+              Reset Filters
+            </button>
+          </section>
+
+        </div>
+      </aside>
+
+      <!-- Center Editor Area -->
+      <section class="editor-workspace">
+        <div class="canvas-wrapper">
+          <!-- Live Preview Canvas -->
+          <div class="canvas-container">
+            <canvas id="studio-canvas"></canvas>
+            <div id="canvas-loader" class="canvas-loader-overlay hidden">
+              <div class="spinner"></div>
+              <span>Processing layers...</span>
+            </div>
+          </div>
+
+          <!-- Canvas Utilities Floating bar -->
+          <div class="canvas-toolbar">
+            <div class="toolbar-group">
+              <button id="btn-zoom-out" class="toolbar-btn" title="Zoom Out Photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+              <span class="toolbar-zoom-label" id="txt-canvas-zoom">100%</span>
+              <button id="btn-zoom-in" class="toolbar-btn" title="Zoom In Photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </button>
+            </div>
+            
+            <div class="divider"></div>
+
+            <button id="btn-rotate-left" class="toolbar-btn" title="Rotate Counterclockwise">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: scaleX(-1);"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+
+            <button id="btn-rotate-right" class="toolbar-btn" title="Rotate Clockwise">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+
+            <div class="divider"></div>
+
+            <button id="btn-reset-transform" class="toolbar-btn" title="Center Photo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Instructions Info Banner -->
+        <div class="workspace-tip">
+          <svg class="tip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <p><strong>Interactive Studio:</strong> Drag the photo directly on the canvas to pan. Use mouse scroll wheel over canvas to scale. Double click to center.</p>
+        </div>
+      </section>
+
+      <!-- Export Panel Sidebar / Right Area -->
+      <aside class="export-panel">
+        <h3 class="section-title">3. Export Settings</h3>
+        <p class="section-desc">Download your framed creation in high definition.</p>
+        
+        <div class="input-field">
+          <label for="export-format">Export Format</label>
+          <select id="export-format">
+            <option value="image/png">PNG Format (Highest Quality)</option>
+            <option value="image/jpeg">JPEG Format (Compressed)</option>
+          </select>
+        </div>
+
+        <div id="jpeg-quality-wrapper" class="slider-field hidden">
+          <div class="slider-label">
+            <span>Compression Quality</span>
+            <span id="val-export-quality">90%</span>
+          </div>
+          <input type="range" id="export-quality" min="10" max="100" value="90">
+        </div>
+
+        <div class="dimensions-preview">
+          <span class="preview-label">Estimated Output Resolution</span>
+          <span id="txt-output-dims" class="preview-value">1920 × 1080 px</span>
+        </div>
+
+        <button id="btn-download" class="btn btn-primary btn-large">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Framed Photo
+        </button>
+
+        <div class="creator-badge">
+          <span>Created with Frameit</span>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast-overlay hidden">
+    <div class="toast-content">
+      <svg class="toast-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span id="toast-message">Success message</span>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="app.js?v=1.2"></script>
+</body>
+</html>
